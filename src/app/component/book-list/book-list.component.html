@@ -1,0 +1,15 @@
+<h1>List</h1>
+<table *ngFor="let b of books; index as i" class="table">
+  <tr>
+    <td>Title:</td>
+    <td><a [routerLink]="['/books/edit',b.id]">{{b.title}}</a></td>
+  </tr>
+  <tr>
+    <td>Author:</td>
+    <td>{{b.author}}</td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td>{{b.description}}</td>
+  </tr>
+</table>

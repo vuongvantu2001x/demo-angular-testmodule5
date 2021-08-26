@@ -1,5 +1,7 @@
 <h1>List</h1>
+<h3><a routerLink="/books/create">Create Book</a></h3>
 <table *ngFor="let b of books; index as i" class="table">
+
   <tr>
     <td>Title:</td>
     <td><a [routerLink]="['/books/edit',b.id]">{{b.title}}</a></td>

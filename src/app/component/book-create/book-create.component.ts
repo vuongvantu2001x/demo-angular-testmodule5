@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {BookService} from '../../service/book.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-create',
@@ -13,7 +14,8 @@ export class BookCreateComponent implements OnInit {
     author: new FormControl(),
     description: new FormControl(),
   });
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +25,7 @@ export class BookCreateComponent implements OnInit {
     this.bookService.saveBook(book).subscribe(() => {
       this.bookForm.reset();
       alert('Tạo thành công');
+      this.router.navigate(['/books']);
     }, e => {
       console.log(e);
     });
